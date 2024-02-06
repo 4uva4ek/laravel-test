@@ -52,7 +52,7 @@ class BookTest extends TestCase
             'publisher' => fake()->name(),
         ];
         $response = $this->post("/api/book", $data);
-        $response->assertStatus(200);
+        $response->assertStatus(400);
         $response->assertJson([
             'status' => 'error'
         ]);
@@ -79,7 +79,7 @@ class BookTest extends TestCase
             'title' => fake()->jobTitle()
         ];
         $response = $this->patch("/api/book", $data);
-        $response->assertStatus(200);
+        $response->assertStatus(400);
         $response->assertJson([
             'status' => 'error'
         ]);
@@ -104,7 +104,7 @@ class BookTest extends TestCase
             'title' => fake()->jobTitle()
         ];
         $response = $this->delete("/api/book", $data);
-        $response->assertStatus(200);
+        $response->assertStatus(400);
         $response->assertJson([
             'status' => 'error'
         ]);
@@ -116,7 +116,7 @@ class BookTest extends TestCase
             'id' => 99999
         ];
         $response = $this->delete("/api/book", $data);
-        $response->assertStatus(200);
+        $response->assertStatus(400);
         $response->assertJson([
             'status' => 'error'
         ]);
